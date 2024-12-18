@@ -26,7 +26,7 @@
 // }
 
 // export const deployerEnv = new PrivateEnv(SECRET_KEY, process.env.PXE_URL || 'http://localhost:8080');
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 export const connect_wallet = async () => {
     toast.info('Connecting to wallet...');
     console.log("connect wallet");

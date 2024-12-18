@@ -75,13 +75,9 @@ const ActionButton = styled.button`
 interface CardItemProps {
   imageUrl: string;
   onBuyClick: () => void;
-  onOpinionClick: () => void;
 }
 
-export const CardItem: React.FC<CardItemProps> = ({
-  imageUrl,
-  onOpinionClick,
-}) => {
+export const CardItem: React.FC<CardItemProps> = ({ imageUrl }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -94,7 +90,7 @@ export const CardItem: React.FC<CardItemProps> = ({
 
     toast.promise(promise, {
       loading: "Processing transaction...",
-      success: (_) => {
+      success: () => {
         return `Transaction is successful`;
       },
       error: "Error",
