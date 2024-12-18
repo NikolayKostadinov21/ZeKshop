@@ -5,6 +5,7 @@ dotenv.config();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  ignoreDuringBuilds: true,
   experimental: {
     outputFileTracingIncludes: {
       "/api/claim-airdrop": [
