@@ -1,3 +1,6 @@
 [submodule "zekshop/app/libs/wallet-sdk"]
 	path = zekshop/app/libs/wallet-sdk
 	url = https://github.com/obsidionlabs/wallet-sdk.git
+[submodule "zekshop/app/libs/aztec-wallet-sdk"]
+	path = zekshop/app/libs/aztec-wallet-sdk
+	url = https://github.com/olehmisar/aztec-wallet-sdk
