@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { connect_wallet } from "./connect_wallet";
+import ConnectWallet from "./ConnectWallet";
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -29,7 +29,6 @@ const HamburgerButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   display: none;
-
   @media (max-width: 768px) {
     display: block;
   }
@@ -133,7 +132,9 @@ const Navbar: React.FC = () => {
         <Logo src="/zekshop_logo_black_background.png" alt="al" />
         <NavButtons>
           <NavButton>Store</NavButton>
-          <NavButton onClick={connect_wallet}>Connect Wallet</NavButton>
+          <NavButton>
+            <ConnectWallet>Connect Wallet</ConnectWallet>
+          </NavButton>
           <NavButton>About</NavButton>
         </NavButtons>
         <HamburgerButton onClick={toggleMenu}>☰</HamburgerButton>
