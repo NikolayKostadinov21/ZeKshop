@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 import DragAndDropFile from "../opinion/DragAndDropFile";
-import { verifyProof } from "../prover_utils";
+// import { verifyProof } from "../prover_utils";
 import { toast } from "sonner";
 
 const Card = styled.div`
@@ -16,9 +16,7 @@ const Card = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 
   &:hover {
@@ -59,9 +57,7 @@ const ActionButton = styled.button`
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    transform 0.2s ease;
+  transition: background-color 0.25s ease, transform 0.2s ease;
 
   &:hover {
     background-color: #1e3a8a;
@@ -100,14 +96,14 @@ export const CardItem: React.FC<CardItemProps> = ({ imageUrl }) => {
   // Handler for when a file is selected in the DragAndDropFile component
   const handleFileSelect = async (file: File) => {
     handleClose();
-    const proof_verification_promise = verifyProof(file);
-    toast.promise(proof_verification_promise, {
-      loading: "Verifying your email...",
-      success: () => {
-        return `Verification successful! 🎉`;
-      },
-      error: "Verification failed",
-    });
+    // const proof_verification_promise = verifyProof(file);
+    // toast.promise(proof_verification_promise, {
+    //   loading: "Verifying your email...",
+    //   success: () => {
+    //     return `Verification successful! 🎉`;
+    //   },
+    //   error: "Verification failed",
+    // });
   };
 
   return (

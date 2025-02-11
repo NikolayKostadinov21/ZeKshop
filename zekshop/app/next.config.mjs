@@ -8,14 +8,14 @@ const nextConfig = {
   ignoreDuringBuilds: true,
   experimental: {
     outputFileTracingIncludes: {
-      "/api/claim-airdrop": [
-        "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/**/*",
-        "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/barretenberg_wasm_thread/factory/node/thread.worker.js",
-      ],
-      "/api/claim-airdrop/": [
-        "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/**/*",
-        "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/barretenberg_wasm_thread/factory/node/thread.worker.js",
-      ],
+      // "/api/claim-airdrop": [
+      //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/**/*",
+      //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/barretenberg_wasm_thread/factory/node/thread.worker.js",
+      // ],
+      // "/api/claim-airdrop/": [
+      //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/**/*",
+      //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/barretenberg_wasm_thread/factory/node/thread.worker.js",
+      // ],
     },
   },
   reactStrictMode: true,
@@ -64,10 +64,10 @@ const nextConfig = {
             key: "Cross-Origin-Embedder-Policy",
             value: "require-corp",
           },
-          {
-            key: "Cross-Origin-Opener-Policy",
-            value: "same-origin",
-          },
+          // {
+          //   key: "Cross-Origin-Opener-Policy",
+          //   value: "same-origin",
+          // },
         ],
       },
     ];

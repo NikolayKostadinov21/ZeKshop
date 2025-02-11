@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { AztecAddress, createPXEClient } from "@aztec/aztec.js";
-import { useAccount } from "../../libs/aztec-wallet-sdk/src/exports/react";
+import { useAccount } from "@shieldswap/wallet-sdk/react";
 import { getDeployedTestAccountsWallets } from "@aztec/accounts/testing";
-import { PopupWalletSdk } from "../../libs/aztec-wallet-sdk/src/popup";
+import { PopupWalletSdk } from "@shieldswap/wallet-sdk";
 import { fallbackOpenPopup } from "./fallback";
-import { Contract } from "../../libs/aztec-wallet-sdk/src/contract";
+import { Contract } from "@shieldswap/wallet-sdk/eip1193";
 import {
   TokenContract,
   TokenContractArtifact,
 } from "@aztec/noir-contracts.js/Token";
 
-const PXE_URL = "https://obsidion.vercel.app";
+const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
 
 const SDK = new PopupWalletSdk(PXE, {
