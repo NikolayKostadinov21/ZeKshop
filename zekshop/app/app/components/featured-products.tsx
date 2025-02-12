@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
+import { Card, CardBody, CardFooter } from "@heroui/card";
+import { Button } from "@heroui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const products = [
@@ -10,25 +10,25 @@ const products = [
     id: 1,
     name: "Bamboo Toothbrush",
     price: 5.99,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/21.png",
   },
   {
     id: 2,
     name: "Reusable Water Bottle",
     price: 15.99,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/22.png",
   },
   {
     id: 3,
     name: "Organic Cotton T-Shirt",
     price: 24.99,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/24.png",
   },
   {
     id: 4,
     name: "Recycled Paper Notebook",
     price: 9.99,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/25.png",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function FeaturedProducts() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl">
               {visibleProducts.map((product) => (
                 <Card key={product.id} className="w-full max-w-sm mx-auto">
-                  <CardContent className="p-4">
+                  <CardBody className="p-4">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
@@ -70,25 +70,21 @@ export default function FeaturedProducts() {
                     />
                     <h3 className="font-semibold mb-2">{product.name}</h3>
                     <p className="text-gray-600">${product.price.toFixed(2)}</p>
-                  </CardContent>
+                  </CardBody>
                   <CardFooter>
-                    <Button className="w-full">Add to Cart</Button>
+                    <Button className="w-full">Buy</Button>
                   </CardFooter>
                 </Card>
               ))}
             </div>
           </div>
           <Button
-            variant="outline"
-            size="icon"
             className="absolute top-1/2 -left-4 transform -translate-y-1/2 hidden lg:flex"
             onClick={prevProducts}
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
           <Button
-            variant="outline"
-            size="icon"
             className="absolute top-1/2 -right-4 transform -translate-y-1/2 hidden lg:flex"
             onClick={nextProducts}
           >
@@ -96,20 +92,10 @@ export default function FeaturedProducts() {
           </Button>
         </div>
         <div className="flex justify-center mt-6 lg:hidden">
-          <Button
-            variant="outline"
-            size="sm"
-            className="mx-2"
-            onClick={prevProducts}
-          >
+          <Button size="sm" className="mx-2" onClick={prevProducts}>
             <ChevronLeft className="h-4 w-4 mr-2" /> Previous
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="mx-2"
-            onClick={nextProducts}
-          >
+          <Button size="sm" className="mx-2" onClick={nextProducts}>
             Next <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>

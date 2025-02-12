@@ -1,14 +1,15 @@
 "use client";
 import Navbar from "./navbar/Navbar";
-import {
-  BackgroundSection,
-  GlobalStyle,
-  MainContent,
-  NavbarOverlay,
-} from "./background/background";
 import { CardItem, CardContainer } from "./product_items/card_item";
-
+import { Button } from "@heroui/button";
 import { Toaster } from "sonner";
+import FeaturedProducts from "./components/featured-products";
+import Categories from "./components/categories";
+import SpecialOffer from "./components/special-offer";
+import Testimonials from "./components/testimonials";
+import Newsletter from "./components/newsletter";
+import Footer from "./components/footer";
+import VideoBackground from "./background/video_background";
 
 export default function Home() {
   const css = `
@@ -36,48 +37,28 @@ export default function Home() {
   return (
     <div>
       <style>{css}</style>
-      <GlobalStyle />
-      <NavbarOverlay>
-        <Navbar />
-      </NavbarOverlay>
-      <BackgroundSection />
-      <MainContent>
-        <CardContainer>
-          <CardItem
-            imageUrl="/22.png"
-            onBuyClick={() => alert("Buying product 2")}
-          />
-          <CardItem
-            imageUrl="/11.png"
-            onBuyClick={() => alert("Buying product 2")}
-          />
-          <CardItem
-            imageUrl="/21.png"
-            onBuyClick={() => alert("Buying product 3")}
-          />
-          <CardItem
-            imageUrl="/25.png"
-            onBuyClick={() => alert("Buying product 3")}
-          />
-          <CardItem
-            imageUrl="/12.png"
-            onBuyClick={() => alert("Buying product 3")}
-          />
-          <CardItem
-            imageUrl="/24.png"
-            onBuyClick={() => alert("Buying product 3")}
-          />
-          <Toaster
-            toastOptions={{
-              style: {
-                height: "40px",
-              },
-            }}
-            richColors
-            position="bottom-center"
-          />
-        </CardContainer>
-      </MainContent>
+      <Navbar />
+      <VideoBackground videoSrc="/background_video.mp4">
+        <h1 className="text-5xl font-bold">ZeKshop</h1>
+        <p className="mt-4 text-lg">Pleasure in privacy.</p>
+        <Button className="mt-6">Let's buy!</Button>
+      </VideoBackground>
+      <Categories />
+      <FeaturedProducts />
+      <SpecialOffer />
+      <Testimonials />
+      <Newsletter />
+      <CardContainer></CardContainer>
+      <Toaster
+        toastOptions={{
+          style: {
+            height: "40px",
+          },
+        }}
+        richColors
+        position="bottom-center"
+      />
+      <Footer />
     </div>
   );
 }

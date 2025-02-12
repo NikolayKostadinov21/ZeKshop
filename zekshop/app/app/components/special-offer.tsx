@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@heroui/button";
 
 export default function SpecialOffer() {
   return (
@@ -8,9 +8,7 @@ export default function SpecialOffer() {
         <p className="text-xl mb-6">
           Get 20% off on your first purchase. Use code: FIRSTBUY
         </p>
-        <Button variant="secondary" size="lg">
-          Shop Now
-        </Button>
+        <Button size="lg">Shop Now</Button>
       </div>
     </section>
   );

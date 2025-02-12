@@ -2,6 +2,9 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "overrides": {
+    "next": "14.2.14"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,18 +15,27 @@
   "dependencies": {
     "@aztec/accounts": "^0.75.0",
     "@aztec/aztec.js": "0.75.0",
-    "@shieldswap/wallet-sdk": "0.75.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@heroicons/react": "^2.2.0",
+    "@heroui/button": "^2.2.10",
+    "@heroui/card": "^2.2.10",
+    "@heroui/input": "^2.4.10",
+    "@heroui/react": "^2.6.14",
+    "@heroui/system": "^2.4.7",
+    "@heroui/theme": "^2.4.6",
     "@mantine/core": "^7.16.3",
     "@mantine/hooks": "^7.16.3",
     "@mui/material": "^6.1.5",
+    "@shieldswap/wallet-sdk": "0.75.0",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "add": "^2.0.6",
     "bulma": "^1.0.2",
     "cal-sans": "^1.0.1",
     "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.5.2",
     "extract-text-webpack-plugin": "^3.0.2",
+    "framer-motion": "^12.4.2",
     "fs": "^0.0.1-security",
     "idb-keyval": "^6.2.1",
     "jest": "^29.7.0",
@@ -31,8 +43,8 @@
     "mailparser": "^3.7.1",
     "next": "14.2.11",
     "nodemailer": "^6.9.16",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.9",
     "react-toastify": "^11.0.3",
     "sass": "^1.78.0",
@@ -41,7 +53,8 @@
     "styled-components": "^6.1.13",
     "tailwindcss": "^3.4.17",
     "toast": "^0.5.4",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@aztec/noir-contracts.js": "0.75.0",
@@ -56,7 +69,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.11",
     "ts-jest": "^29.2.5",
-    "typescript": "5.6.3",
+    "typescript": "^5.7.3",
     "webpack": "^5.95.0"
   },
   "eslintConfig": {

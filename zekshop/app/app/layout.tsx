@@ -1,3 +1,6 @@
+import { Providers } from "./providers";
+import "./globals.css";
+
 export const metadata = {
   title: "ZeKshop",
   description: "ZeKshop",
@@ -9,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="dark">
+      <Providers>{children}</Providers>
     </html>
   );
 }

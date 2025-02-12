@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ShoppingCart, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@heroui/button";
 
 export default function Header() {
   return (
@@ -24,10 +24,10 @@ export default function Header() {
           </Link>
         </nav>
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost">
             <Search className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost">
             <ShoppingCart className="h-5 w-5" />
           </Button>
         </div>

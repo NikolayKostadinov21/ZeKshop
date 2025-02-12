@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 
 export default function Newsletter() {
   return (

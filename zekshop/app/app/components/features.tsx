@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardBody } from "@heroui/card";
 import { Lightbulb, Zap, Shield } from "lucide-react";
 
 const features = [
@@ -38,9 +33,11 @@ export default function Features() {
           {features.map((feature, index) => (
             <Card key={index}>
               <CardHeader>
+                <p className="text-tiny uppercase font-bold">{feature.title}</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
                 <feature.icon className="w-10 h-10 mb-4 text-purple-600" />
-                <CardTitle>{feature.title}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
+                <CardBody>{feature.description}</CardBody>
               </CardHeader>
             </Card>
           ))}
