@@ -6,7 +6,7 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   background-color: #1f1f1f;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -45,16 +45,16 @@ const NavButtons = styled.div`
 
 const NavButton = styled.button`
   background: #1f1f1f;
-  border: 2px solid #4a90e2;
+  border: 2px solid #610b13;
   padding: 0.5rem 1.2rem;
   font-size: 20px;
-  color: #914ab5;
+  color: #ffffff;
   cursor: pointer;
   border-radius: 20px;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #4a90e2;
+    background-color: #610b13;
     color: #ffffff;
   }
 `;

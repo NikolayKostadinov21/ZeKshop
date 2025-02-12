@@ -155,69 +155,14 @@ const ConnectWallet = () => {
     setTokenContract(token);
     setTokenAddress(tokenContract.address.toString());
     setLoading(false);
-    // handleFetchBalances()
   };
 
   return (
     <div>
-      <div>Example Token App</div>
-
       {account ? (
         <>
-          <div>Connected Account: {account.getAddress().toString()}</div>
-          {tokenContract && tokenAddress ? (
-            <>
-              <div>Token: {tokenAddress}</div>
-              {/* <div style={{ display: "flex", gap: 10 }}>
-                <Text>Private Balance: {privateBalance ? `${privateBalance} TEST` : "0 TEST"}</Text>
-                <Text>Public Balance: {publicBalance ? `${publicBalance} TEST` : "0 TEST"}</Text>
-              </div> */}
-
-              <input
-                style={{ width: "50%" }}
-                placeholder="Amount"
-                value={amount || ""}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-
-              <input
-                style={{ width: "50%" }}
-                placeholder="Recipient"
-                value={recipient || ""}
-                onChange={(e) => setRecipient(e.target.value)}
-              />
-              <div style={{ display: "flex", gap: 20 }}>
-                <button disabled={loading} onClick={() => handleSendTx(true)}>
-                  Send Token (Private)
-                </button>
-                <button disabled={loading} onClick={() => handleSendTx(false)}>
-                  Send Token (Public)
-                </button>
-              </div>
-              {/* <button mt={10} onClick={() => handleFetchBalances()}>
-                Fetch Balances
-              </button> */}
-              {error && <div color="red">{error}</div>}
-            </>
-          ) : (
-            <>
-              <input
-                style={{ width: "50%" }}
-                placeholder="0x..."
-                value={tokenAddress || ""}
-                onChange={(e) => {
-                  setTokenAddress(e.target.value);
-                  localStorage.setItem("tokenAddress", e.target.value);
-                }}
-              />
-              <div style={{ display: "flex", gap: 20 }}>
-                <button disabled={loading} onClick={() => handleMintToken()}>
-                  Deploy & Mint Token
-                </button>
-              </div>
-              {error && <div color="red">{error}</div>}
-            </>
-          )}
+          <div> {account.getAddress().toString().substring(0, 8)}...</div>
+          {tokenContract && tokenAddress ? <></> : <></>}
         </>
       ) : (
         <button
