@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AztecAddress, createPXEClient } from "@aztec/aztec.js";
 import { useAccount } from "@shieldswap/wallet-sdk/react";
-import { PopupWalletSdk } from "@shieldswap/wallet-sdk";
+import { ReownPopupWalletSdk } from "@shieldswap/wallet-sdk";
 import { Contract } from "@shieldswap/wallet-sdk/eip1193";
 import {
   TokenContract,
@@ -11,7 +11,11 @@ import {
 const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
 
-const SDK = new PopupWalletSdk(PXE);
+const wcOptions = {
+  projectId: "067a11239d95dd939ee98ea22bde21da",
+};
+
+const SDK = new ReownPopupWalletSdk(PXE, wcOptions);
 
 const ConnectWallet = () => {
   const account = useAccount(SDK);
@@ -23,7 +27,7 @@ const ConnectWallet = () => {
   });
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     localStorage.setItem("tokenAddress", tokenAddress || "");

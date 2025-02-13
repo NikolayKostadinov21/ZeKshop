@@ -3,15 +3,13 @@ import React, { useState, useRef, useEffect } from "react";
 interface CategoryProps {
   text: string;
   imageSrc: string;
-  event: React.MouseEvent;
 }
 
-const Category: React.FC<CategoryProps> = ({ text, imageSrc, event }) => {
+const Category: React.FC<CategoryProps> = ({ text, imageSrc }) => {
   const [hovered, setHovered] = useState(false);
-  const { clientX, clientY } = event;
   const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: clientX,
-    y: clientY,
+    x: 0,
+    y: 0,
   });
   const textRef = useRef<HTMLHeadingElement>(null);
 

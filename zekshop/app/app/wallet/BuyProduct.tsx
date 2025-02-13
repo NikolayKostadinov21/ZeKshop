@@ -16,15 +16,13 @@ const PXE = createPXEClient(PXE_URL);
 
 const SDK = new PopupWalletSdk(PXE);
 
-interface IBuyProduct {}
-
 const BuyProduct = () => {
   const account = useAccount(SDK);
 
   const [tokenContract, setTokenContract] =
     useState<Contract<TokenContract> | null>(null);
   const [tokenAddress, setTokenAddress] = useState<string | null>(() => {
-    return localStorage.getItem("tokenAddress");
+    return localStorage?.getItem("tokenAddress");
   });
 
   const [amount, setAmount] = useState<string | null>(null);
@@ -100,6 +98,7 @@ const BuyProduct = () => {
     setError(null);
     if (!account) {
       setError("Account not found");
+      console.log(error);
       setLoading(false);
       return;
     }
@@ -137,6 +136,7 @@ const BuyProduct = () => {
         .wait();
       console.log("txHash: ", txHash);
     } catch (e) {
+      console.log(e);
       setError("Error sending transaction");
       setLoading(false);
       return;

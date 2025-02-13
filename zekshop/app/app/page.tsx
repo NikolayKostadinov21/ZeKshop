@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@heroui/button";
 import { Toaster } from "sonner";
-import SpecialOffer from "./components/special-offer";
 import BackedBy from "./components/BackedBy";
 import Newsletter from "./components/newsletter";
 import Contacts from "./components/Contacts";
@@ -52,7 +51,7 @@ export default function Home() {
           Pleasure in privacy.
         </p>
         <Button className="mt-4 text-base md:text-lg lg:text-xl px-5 py-2">
-          Let's buy!
+          Let&apos;s buy!
         </Button>
         <ConnectWallet />
       </VideoBackground>
