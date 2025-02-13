@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AztecAddress, createPXEClient } from "@aztec/aztec.js";
 import { useAccount } from "@shieldswap/wallet-sdk/react";
-import { getDeployedTestAccountsWallets } from "@aztec/accounts/testing";
 import { PopupWalletSdk } from "@shieldswap/wallet-sdk";
-import { fallbackOpenPopup } from "./fallback";
 import { Contract } from "@shieldswap/wallet-sdk/eip1193";
 import {
   TokenContract,
@@ -13,9 +11,7 @@ import {
 const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
 
-const SDK = new PopupWalletSdk(PXE, {
-  fallbackOpenPopup: fallbackOpenPopup,
-});
+const SDK = new PopupWalletSdk(PXE);
 
 const ConnectWallet = () => {
   const account = useAccount(SDK);
