@@ -2,13 +2,13 @@
 import Navbar from "./navbar/Navbar";
 import { Button } from "@heroui/button";
 import { Toaster } from "sonner";
-import FeaturedProducts from "./components/featured-products";
 import SpecialOffer from "./components/special-offer";
 import Testimonials from "./components/testimonials";
 import Newsletter from "./components/newsletter";
 import Footer from "./components/footer";
 import VideoBackground from "./background/video_background";
 import Categories from "./components/Categories";
+import Items from "./components/Items";
 
 export default function Home() {
   const css = `
@@ -49,7 +49,7 @@ export default function Home() {
         </Button>
       </VideoBackground>
       <Categories />
-      <FeaturedProducts />
+      <Items />
       <SpecialOffer />
       <Testimonials />
       <Newsletter />
