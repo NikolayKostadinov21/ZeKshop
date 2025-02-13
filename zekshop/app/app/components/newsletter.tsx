@@ -1,23 +1,55 @@
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
+import React, { useState } from "react";
 
-export default function Newsletter() {
+const Newsletter: React.FC = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Implement API call or action for subscribing
+    console.log("Subscribed with email:", email);
+  };
+
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-        <p className="text-xl mb-6">
-          Stay updated with our latest products and offers.
+    <section className="relative bg-black text-center py-20 px-6">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 text-gray-800 text-7xl font-extrabold uppercase opacity-10 tracking-widest flex items-center justify-center">
+        NEWSLETTER NEWSLETTER NEWSLETTER
+      </div>
+
+      <div className="relative z-10 max-w-2xl mx-auto">
+        {/* Small Title */}
+        <p className="text-sm tracking-wide text-pink-500 uppercase mb-3">
+          Newsletter
         </p>
-        <form className="max-w-md mx-auto flex gap-2">
-          <Input
+
+        {/* Main Title */}
+        <h2 className="text-5xl font-extrabold text-white uppercase mb-6">
+          Subscribe to Our Newsletter
+        </h2>
+
+        {/* Subscription Form */}
+        <form
+          onSubmit={handleSubscribe}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto"
+        >
+          <input
             type="email"
-            placeholder="Enter your email"
-            className="flex-grow"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email address"
+            required
+            className="w-full sm:w-auto px-6 py-4 bg-white text-gray-900 text-lg rounded-full outline-none border-2 border-transparent focus:border-pink-500 transition duration-300 placeholder-gray-500"
           />
-          <Button type="submit">Subscribe</Button>
+          <button
+            type="submit"
+            className="px-8 py-4 bg-pink-500 text-white text-lg font-semibold rounded-full shadow-md hover:bg-pink-600 transition duration-300"
+          >
+            Subscribe
+          </button>
         </form>
       </div>
     </section>
   );
-}
+};
+
+export default Newsletter;

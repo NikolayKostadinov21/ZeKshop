@@ -2,9 +2,9 @@
 import { Button } from "@heroui/button";
 import { Toaster } from "sonner";
 import SpecialOffer from "./components/special-offer";
-import Testimonials from "./components/testimonials";
+import BackedBy from "./components/BackedBy";
 import Newsletter from "./components/newsletter";
-import Footer from "./components/footer";
+import Contacts from "./components/Contacts";
 import VideoBackground from "./background/video_background";
 import Categories from "./components/Categories";
 import Items from "./components/Items";
@@ -58,9 +58,9 @@ export default function Home() {
       </VideoBackground>
       <Categories />
       <Items />
-      <SpecialOffer />
-      <Testimonials />
       <Newsletter />
+      <Contacts />
+      <BackedBy />
       <Toaster
         toastOptions={{
           style: {
@@ -70,7 +70,6 @@ export default function Home() {
         richColors
         position="bottom-center"
       />
-      <Footer />
     </div>
   );
 }
