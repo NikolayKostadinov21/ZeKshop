@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "./navbar/Navbar";
-import { CardItem, CardContainer } from "./product_items/card_item";
 import { Button } from "@heroui/button";
 import { Toaster } from "sonner";
 import FeaturedProducts from "./components/featured-products";
@@ -10,6 +9,7 @@ import Testimonials from "./components/testimonials";
 import Newsletter from "./components/newsletter";
 import Footer from "./components/footer";
 import VideoBackground from "./background/video_background";
+import Helper from "./components/Helper";
 
 export default function Home() {
   const css = `
@@ -39,16 +39,22 @@ export default function Home() {
       <style>{css}</style>
       <Navbar />
       <VideoBackground videoSrc="/background_video.mp4">
-        <h1 className="text-5xl font-bold">ZeKshop</h1>
-        <p className="mt-4 text-lg">Pleasure in privacy.</p>
-        <Button className="mt-6">Let's buy!</Button>
+        <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold leading-tight">
+          ZeKshop
+        </h1>
+        <p className="mt-4 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light">
+          Pleasure in privacy.
+        </p>
+        <Button className="mt-6 text-lg md:text-xl lg:text-2xl px-8 py-4">
+          Let's buy!
+        </Button>
       </VideoBackground>
+      <Helper />
       <Categories />
       <FeaturedProducts />
       <SpecialOffer />
       <Testimonials />
       <Newsletter />
-      <CardContainer></CardContainer>
       <Toaster
         toastOptions={{
           style: {

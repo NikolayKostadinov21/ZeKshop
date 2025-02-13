@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import BuyButton from "./BuyButton";
 
 const products = [
   {
@@ -72,7 +73,9 @@ export default function FeaturedProducts() {
                     <p className="text-gray-600">${product.price.toFixed(2)}</p>
                   </CardBody>
                   <CardFooter>
-                    <Button className="w-full">Buy</Button>
+                    <button>
+                      <BuyButton></BuyButton>
+                    </button>
                   </CardFooter>
                 </Card>
               ))}
@@ -80,22 +83,22 @@ export default function FeaturedProducts() {
           </div>
           <Button
             className="absolute top-1/2 -left-4 transform -translate-y-1/2 hidden lg:flex"
-            onClick={prevProducts}
+            onPress={prevProducts}
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
           <Button
             className="absolute top-1/2 -right-4 transform -translate-y-1/2 hidden lg:flex"
-            onClick={nextProducts}
+            onPress={nextProducts}
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
         </div>
         <div className="flex justify-center mt-6 lg:hidden">
-          <Button size="sm" className="mx-2" onClick={prevProducts}>
+          <Button size="sm" className="mx-2" onPress={prevProducts}>
             <ChevronLeft className="h-4 w-4 mr-2" /> Previous
           </Button>
-          <Button size="sm" className="mx-2" onClick={nextProducts}>
+          <Button size="sm" className="mx-2" onPress={nextProducts}>
             Next <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>

@@ -21,8 +21,8 @@ const VideoBackground = ({ videoSrc, children }: VideoBackgroundProps) => {
       {/* Overlay for better readability */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 
-      {/* Foreground Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+      {/* Foreground Content with Bigger Text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
         {children}
       </div>
     </div>

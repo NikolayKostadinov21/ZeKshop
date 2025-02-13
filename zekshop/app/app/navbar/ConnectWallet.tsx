@@ -26,9 +26,6 @@ const ConnectWallet = () => {
     return localStorage.getItem("tokenAddress");
   });
 
-  const [amount, setAmount] = useState<string | null>(null);
-  const [recipient, setRecipient] = useState<string | null>(null);
-
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -63,99 +60,6 @@ const ConnectWallet = () => {
       initTokenContract();
     }
   }, [tokenAddress, account]);
-
-  const handleSendTx = async (isPrivate: boolean) => {
-    setLoading(true);
-    setError(null);
-    if (!account) {
-      setError("Account not found");
-      setLoading(false);
-      return;
-    }
-
-    if (!tokenContract) {
-      setError("Token contract not found");
-      setLoading(false);
-      return;
-    }
-
-    if (!amount) {
-      setError("Amount is required");
-      setLoading(false);
-      return;
-    }
-
-    if (!recipient) {
-      setError("Recipient is required");
-      setLoading(false);
-      return;
-    }
-
-    console.log("sending token");
-
-    try {
-      const txHash = await tokenContract.methods[
-        isPrivate ? "transfer_in_private" : "transfer_in_public"
-      ](
-        account.getAddress(),
-        AztecAddress.fromString(recipient),
-        BigInt(amount) * BigInt(1e18),
-        0
-      )
-        .send()
-        .wait();
-      console.log("txHash: ", txHash);
-    } catch (e) {
-      setError("Error sending transaction");
-      setLoading(false);
-      return;
-    }
-
-    setLoading(false);
-    // handleFetchBalances()
-  };
-
-  const handleMintToken = async () => {
-    if (!account) {
-      setError("Account not found");
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-
-    const deployer = (await getDeployedTestAccountsWallets(PXE))[0];
-    const deployTx = await TokenContract.deploy(
-      deployer,
-      deployer.getAddress(),
-      "Token",
-      "TEST",
-      18
-    )
-      .send()
-      .wait();
-    console.log("deployTx: ", deployTx);
-
-    const tokenContract = deployTx.contract;
-    await tokenContract.methods
-      .mint_to_private(deployer.getAddress(), deployer.getAddress(), 1000e18)
-      .send()
-      .wait();
-    await tokenContract.methods
-      .transfer_in_private(deployer.getAddress(), account.address, 1000e18, 0)
-      .send()
-      .wait();
-    await tokenContract.methods
-      .mint_to_public(account.address, 1000e18)
-      .send()
-      .wait();
-
-    const Token = Contract.fromAztec(TokenContract, TokenContractArtifact);
-    const token = await Token.at(tokenContract.address, account);
-    setTokenContract(token);
-    setTokenAddress(tokenContract.address.toString());
-    setLoading(false);
-  };
 
   return (
     <div>
