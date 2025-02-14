@@ -138,6 +138,7 @@ const BuyProduct: React.FC<{ productPrice: string }> = ({ productPrice }) => {
         .wait();
       console.log("txHash: ", txHash);
       showTransactionSuccess(txHash.txHash.hash.toString());
+      localStorage.setItem("verified_account", account.getAddress().toString());
     } catch (e) {
       console.log(e);
       setError("Error sending transaction");

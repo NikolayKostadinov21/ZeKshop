@@ -1,5 +1,7 @@
 import React from "react";
 import BuyProduct from "../wallet/BuyProduct"; // ✅ Import the BuyProduct component
+import { Button } from "@heroui/button";
+import Opinion from "../wallet/Opinion";
 
 interface DialogProps {
   item: {
@@ -45,6 +47,7 @@ const Dialog: React.FC<DialogProps> = ({ item, onClose }) => {
 
         {/* BuyProduct Component */}
         <BuyProduct productPrice={item.price.replace("$", "")} />
+        <Opinion />
       </div>
     </div>
   );
