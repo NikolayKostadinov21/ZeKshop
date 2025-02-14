@@ -12,14 +12,14 @@ export default function Items() {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null); // ✅ Stores clicked item
 
   const list: Item[] = [
-    { title: "Orange", img: "/11.png", price: "$5.50" },
-    { title: "Tangerine", img: "/12.png", price: "$3.00" },
-    { title: "Raspberry", img: "/21.png", price: "$10.00" },
-    { title: "Lemon", img: "/22.png", price: "$5.30" },
-    { title: "Avocado", img: "/24.png", price: "$15.70" },
-    { title: "Lemon 2", img: "/25.png", price: "$8.00" },
-    { title: "Banana", img: "/11.png", price: "$7.50" },
-    { title: "Watermelon", img: "/12.png", price: "$12.20" },
+    { title: "Bunny ears", img: "/11.png", price: "$5.50" },
+    { title: "Mask", img: "/12.png", price: "$3.00" },
+    { title: "ZeKy Bra", img: "/21.png", price: "$10.00" },
+    { title: "Bra", img: "/22.png", price: "$5.30" },
+    { title: "Lingerie", img: "/24.png", price: "$15.70" },
+    { title: "Lingerie", img: "/25.png", price: "$8.00" },
+    { title: "Product 1", img: "/11.png", price: "$7.50" },
+    { title: "Product 2", img: "/12.png", price: "$12.20" },
   ];
 
   return (
