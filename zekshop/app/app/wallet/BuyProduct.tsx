@@ -10,6 +10,8 @@ import {
 } from "@aztec/noir-contracts.js/Token";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
+import { showTransactionSuccess } from "../components/TransactionToast";
+import { ToastContainer } from "react-toastify";
 
 const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
@@ -135,6 +137,7 @@ const BuyProduct: React.FC<{ productPrice: string }> = ({ productPrice }) => {
         .send()
         .wait();
       console.log("txHash: ", txHash);
+      showTransactionSuccess(txHash.txHash.hash.toString());
     } catch (e) {
       console.log(e);
       setError("Error sending transaction");
@@ -149,6 +152,7 @@ const BuyProduct: React.FC<{ productPrice: string }> = ({ productPrice }) => {
     <>
       {tokenContract && tokenAddress ? (
         <>
+          <ToastContainer />
           <Input
             style={{ width: "50%" }}
             placeholder="Amount"
