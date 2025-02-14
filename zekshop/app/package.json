@@ -13,8 +13,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@aztec/accounts": "^0.75.0",
-    "@aztec/aztec.js": "0.75.0",
+    "@aztec/accounts": "0.76.1",
+    "@aztec/aztec.js": "0.76.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.2.0",
@@ -27,7 +27,7 @@
     "@mantine/core": "^7.16.3",
     "@mantine/hooks": "^7.16.3",
     "@mui/material": "^6.1.5",
-    "@shieldswap/wallet-sdk": "0.75.0-obsidion.0",
+    "@shieldswap/wallet-sdk": "0.76.1-obsidion.1",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@walletconnect/jsonrpc-provider": "^1.0.14",
     "add": "^2.0.6",
@@ -59,7 +59,7 @@
     "yarn": "^1.22.22"
   },
   "devDependencies": {
-    "@aztec/noir-contracts.js": "0.75.0",
+    "@aztec/noir-contracts.js": "0.76.1",
     "@types/jest": "^29.5.14",
     "@types/mailparser": "^3.4.5",
     "@types/node": "^20",
