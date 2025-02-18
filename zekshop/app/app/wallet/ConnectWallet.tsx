@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AztecAddress, createPXEClient } from "@aztec/aztec.js";
 import { useAccount } from "@shieldswap/wallet-sdk/react";
-import { ReownPopupWalletSdk } from "@shieldswap/wallet-sdk";
+import { PopupWalletSdk } from "@shieldswap/wallet-sdk";
 import { Contract } from "@shieldswap/wallet-sdk/eip1193";
 import {
   TokenContract,
@@ -15,7 +15,7 @@ const wcOptions = {
   projectId: "067a11239d95dd939ee98ea22bde21da",
 };
 
-const SDK = new ReownPopupWalletSdk(PXE, wcOptions);
+const SDK = new PopupWalletSdk(PXE);
 
 const ConnectWallet = () => {
   const account = useAccount(SDK);
