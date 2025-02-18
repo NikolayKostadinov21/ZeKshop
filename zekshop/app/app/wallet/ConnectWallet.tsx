@@ -11,9 +11,9 @@ import {
 const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
 
-const wcOptions = {
-  projectId: "067a11239d95dd939ee98ea22bde21da",
-};
+// const wcOptions = {
+//   projectId: "067a11239d95dd939ee98ea22bde21da",
+// };
 
 const SDK = new PopupWalletSdk(PXE);
 
@@ -22,11 +22,11 @@ const ConnectWallet = () => {
 
   const [tokenContract, setTokenContract] =
     useState<Contract<TokenContract> | null>(null);
-  const [tokenAddress, setTokenAddress] = useState<string | null>(() => {
+  const [tokenAddress] = useState<string | null>(() => {
     return localStorage.getItem("tokenAddress");
   });
 
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading] = useState<boolean>(false);
   // const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {

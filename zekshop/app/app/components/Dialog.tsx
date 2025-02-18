@@ -1,6 +1,5 @@
 import React from "react";
-import BuyProduct from "../wallet/BuyProduct"; // ✅ Import the BuyProduct component
-import { Button } from "@heroui/button";
+import BuyProduct from "../wallet/BuyProduct";
 import Opinion from "../wallet/Opinion";
 
 interface DialogProps {

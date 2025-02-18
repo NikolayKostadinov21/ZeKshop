@@ -20,6 +20,7 @@ const SDK = new PopupWalletSdk(PXE);
 
 const BuyProduct: React.FC<{ productPrice: string }> = ({ productPrice }) => {
   const account = useAccount(SDK);
+  console.log(productPrice);
 
   const [tokenContract, setTokenContract] =
     useState<Contract<TokenContract> | null>(null);
