@@ -1,6 +1,6 @@
 import React from "react";
-import BuyProduct from "../wallet/BuyProduct";
-import Opinion from "../wallet/Opinion";
+// import BuyProduct from "../wallet/BuyProduct";
+// import Opinion from "../wallet/Opinion";
 
 interface DialogProps {
   item: {
@@ -45,8 +45,8 @@ const Dialog: React.FC<DialogProps> = ({ item, onClose }) => {
         <p className="text-pink-500 font-bold text-lg mt-2">{item.price}</p>
 
         {/* BuyProduct Component */}
-        <BuyProduct productPrice={item.price.replace("$", "")} />
-        <Opinion />
+        {/* <BuyProduct productPrice={item.price.replace("$", "")} /> */}
+        {/* <Opinion /> */}
       </div>
     </div>
   );

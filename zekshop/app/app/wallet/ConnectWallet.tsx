@@ -1,51 +1,46 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { AztecAddress, createPXEClient } from "@aztec/aztec.js";
 import { useAccount } from "@shieldswap/wallet-sdk/react";
-import { PopupWalletSdk } from "@shieldswap/wallet-sdk";
+import { ReownPopupWalletSdk } from "@shieldswap/wallet-sdk";
 import { Contract } from "@shieldswap/wallet-sdk/eip1193";
 import {
   TokenContract,
   TokenContractArtifact,
 } from "@aztec/noir-contracts.js/Token";
+import { useLocalStorage } from "usehooks-ts";
 
 const PXE_URL = "http://localhost:8080";
 const PXE = createPXEClient(PXE_URL);
 
-// const wcOptions = {
-//   projectId: "067a11239d95dd939ee98ea22bde21da",
-// };
+const wcOptions = {
+  projectId: "067a11239d95dd939ee98ea22bde21da",
+};
 
-const SDK = new PopupWalletSdk(PXE);
+const SDK = new ReownPopupWalletSdk(PXE, wcOptions);
 
 const ConnectWallet = () => {
   const account = useAccount(SDK);
 
   const [tokenContract, setTokenContract] =
     useState<Contract<TokenContract> | null>(null);
-  const [tokenAddress] = useState<string | null>(() => {
-    return localStorage.getItem("tokenAddress");
-  });
+  // const [tokenAddress, setTokenAddress] = useState<string | null>(null);
 
-  const [loading] = useState<boolean>(false);
-  // const [error, setError] = useState<string | null>(null);
+  // maybe add `removetokenAddress`
+  const [tokenAddress, setTokenAddress] = useLocalStorage("tokenAddress", "");
 
   useEffect(() => {
-    localStorage.setItem("tokenAddress", tokenAddress || "");
-  }, [tokenAddress]);
-
-  useEffect(() => {
-    if (tokenAddress && account) {
-      const initTokenContract = async () => {
-        const Token = Contract.fromAztec(TokenContract, TokenContractArtifact);
-        const tokenContract = await Token.at(
-          AztecAddress.fromString(tokenAddress),
-          account
-        );
-        setTokenContract(tokenContract);
-      };
-      initTokenContract();
+    if (typeof window !== "undefined") {
+      setTokenAddress(tokenAddress);
     }
-  }, [tokenAddress, account]);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && tokenAddress) {
+      setTokenAddress(tokenAddress);
+    }
+  }, [tokenAddress]);
 
   useEffect(() => {
     if (tokenAddress && account) {
@@ -65,7 +60,7 @@ const ConnectWallet = () => {
     <div>
       {account ? (
         <>
-          <div> {account.getAddress().toString().substring(0, 8)}...</div>
+          <div>{account.getAddress().toString().substring(0, 8)}...</div>
           {tokenContract && tokenAddress ? <></> : <></>}
         </>
       ) : (
@@ -80,7 +75,6 @@ const ConnectWallet = () => {
           Connect
         </button>
       )}
-      {loading}
     </div>
   );
 };

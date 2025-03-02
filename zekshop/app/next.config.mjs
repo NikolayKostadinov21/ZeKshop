@@ -16,6 +16,7 @@ const nextConfig = {
       //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/**/*",
       //   "./node_modules/@aztec/bb.js/dest/node/barretenberg_wasm/barretenberg_wasm_thread/factory/node/thread.worker.js",
       // ],
+      serverComponentsExternalPackages: ["sequelize", "pino", "pino-pretty"],
     },
   },
   reactStrictMode: true,
@@ -38,6 +39,14 @@ const nextConfig = {
       config.resolve.fallback = {
         fs: false,
       };
+    }
+    if (isServer) {
+      config.externals = [
+        ...(config.externals || []),
+        ".next/server/app/lib/worker.js",
+        ".next/server/app/lib/682.js",
+        "commonjs thread-stream",
+      ];
     }
     config.experiments = {
       asyncWebAssembly: true,

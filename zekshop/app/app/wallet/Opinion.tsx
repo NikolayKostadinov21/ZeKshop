@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { createPXEClient } from "@aztec/aztec.js";
 import { useAccount } from "@shieldswap/wallet-sdk/react";

@@ -7,14 +7,14 @@ import Contacts from "./components/Contacts";
 import VideoBackground from "./background/video_background";
 import Categories from "./components/Categories";
 import Items from "./components/Items";
-import ConnectWallet from "./wallet/ConnectWallet";
-import styled from "styled-components";
+// import styled from "styled-components";
+// import ConnectWallet from "./wallet/ConnectWallet";
 
-const Logo = styled.img`
-  height: 50px;
-  cursor: pointer;
-  border-radius: 20px;
-`;
+// const Logo = styled.img`
+//   height: 50px;
+//   cursor: pointer;
+//   border-radius: 20px;
+// `;
 
 export default function Home() {
   const css = `
@@ -43,7 +43,7 @@ export default function Home() {
     <div>
       <style>{css}</style>
       <VideoBackground videoSrc="/background_video.mp4">
-        <Logo src="/zekshop_logo_black_background.png" alt="al" />
+        {/* <Logo src="/zekshop_logo_black_background.png" alt="al" /> */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-extrabold leading-tight">
           ZeKshop
         </h1>
@@ -53,7 +53,7 @@ export default function Home() {
         <Button className="mt-4 text-base md:text-lg lg:text-xl px-5 py-2">
           Let&apos;s buy!
         </Button>
-        <ConnectWallet />
+        {/* <ConnectWallet /> */}
       </VideoBackground>
       <Categories />
       <Items />
